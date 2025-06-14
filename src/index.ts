@@ -21,7 +21,7 @@ const client = new Client({
 });
 
 const bannedWords = ["frfr"];
-const bannedUsers = ['706821340073689179', '264386798128594944'];
+const bannedUsers = ['706821340073689179'];
 
 client.once('ready', async () => {
   console.log(`Logged in as ${client.user?.tag}!`);
