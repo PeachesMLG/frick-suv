@@ -21,7 +21,7 @@ const client = new Client({
 });
 
 const bannedWords = ["frfr"];
-const bannedUsers = ['706821340073689179'];
+const bannedUsers = ['706821340073689179', '264386798128594944'];
 
 client.once('ready', async () => {
   console.log(`Logged in as ${client.user?.tag}!`);
@@ -31,7 +31,7 @@ client.on('messageCreate', async (message) => {
   for (const user of bannedUsers){
     if(message.author.id === user){
       for (const bannedWord of bannedWords) {
-        if(message.content.toLowerCase().includes(bannedWord.toLowerCase()) || message.content.replace(' ', '').toLowerCase().includes(bannedWord.replace(' ', '').toLowerCase())) {
+        if(message.content.toLowerCase().replace(/[\s.,\-;]+/g, "").includes(bannedWord.toLowerCase())) {
           await message.delete();
           await message.channel.send(`<@${user}> nu uh`)
           return;
