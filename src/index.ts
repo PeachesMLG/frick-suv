@@ -29,7 +29,7 @@ client.once('ready', async () => {
 client.on('messageCreate', async (message) => {
   if(message.author.id === '706821340073689179'){
     for (const bannedWord of bannedWords) {
-      if(message.content.toLowerCase().includes(bannedWord.toLowerCase())){
+      if(message.content.toLowerCase().includes(bannedWord.toLowerCase()) || message.content.replace(' ', '').toLowerCase().includes(bannedWord.replace(' ', '').toLowerCase())) {
         await message.delete();
         await message.channel.send("<@706821340073689179> nu uh")
         return;
