@@ -11,7 +11,7 @@ const client = new Client({
     ],
 });
 
-const bannedWords = ["frfr"];
+const bannedWords = ["frfr", "kys", "killyourself"];
 const bannedUsers = ['706821340073689179'];
 
 client.once('ready', async () => {
